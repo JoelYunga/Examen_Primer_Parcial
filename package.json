@@ -1,0 +1,17 @@
+{
+  "name": "examen_1p",
+  "version": "1.0.0",
+  "description": "Crear una aplicación en consola con NodeJS que permita leer los datos de un archivo CSV y realizar una búsqueda específica.",
+  "main": "app.js",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "csvtojson": "^2.0.10",
+    "yargs": "^17.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joel Yunga",
+  "license": "ISC"
+}
