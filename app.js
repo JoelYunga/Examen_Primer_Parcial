@@ -9,6 +9,9 @@ switch (comando) {
     case 'mostrar':
         let consulta = tareas.consulta(argv.archivo, argv.anio, argv.pais);
         break;
+    case 'guardar':
+        let guardar = tareas.guardar(argv.archivo, argv.anio, argv.pais);
+        break;
     default:
         console.log('Comando no reconocido');
 }

@@ -93,8 +93,31 @@ async function consulta(archivo, anio, cod) {
     }
 }
 
+async function guardar(archivo, anio, cod) {
+    let datos = await getDatos(archivo);
+    if (datos != "Error 200") {
+        let Country = await getPais(datos, cod);
+        if (Country == true) {
+            let pais = await getPaises(datos, cod);
+            let iname = await getIndicadorName(datos, cod);
+            if (anio >= 1960 && anio <= 2019) {
+                getSuscripcion(datos, cod, anio)
+                    .then((suscriPais) => {
+                        fs.writeFileSync(`resultados/${cod}-${anio}.txt`, `Datos: ${iname}\nPais: ${pais}\nCodigo: ${cod}\nAnio: ${anio}\nValor: ${Number(suscriPais)}`);
+                        console.log(`Archivo guardado exitosamente: /resultados/${cod}-${anio}.txt`.green)
+                    })
+            } else {
+                console.log('\n     ' + `Al momento no existe registros para el año: ${anio} `.red);
+            }
+        } else {
+            console.log('\n     ' + `No existe el codigo de pais: ${cod} en la base de datos. `.red);
+        }
+    } else {
+        console.log(`\n `, `::::No existe el archivo ${archivo} !::::`.red)
+    }
+}
 
 module.exports = {
     consulta,
-
+    guardar
 }

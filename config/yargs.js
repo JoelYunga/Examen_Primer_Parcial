@@ -11,7 +11,7 @@ const anio = {
 const pais = {
     default: 'ECU',
     alias: 'c',
-    desc: ' Código del país que se requiere información'
+    desc: 'Código del país que se requiere información'
 }
 
 
